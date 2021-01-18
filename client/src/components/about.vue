@@ -1,5 +1,5 @@
 <template>
-  <section class="about">
+  <section class="about" id="about">
     <h1 class="text-center">Kompaniyamiz haqida</h1>
     <v-container>
       <v-row>

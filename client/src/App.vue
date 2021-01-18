@@ -11,29 +11,34 @@
         ></v-app-bar-nav-icon>
         <v-btn
           tag="a"
-          class="nav_link"
+          class="nav_link sam-link"
           style="font-size:20px"
           v-for="n in buttonLeft"
           :key="n.name"
+          :href="n.href"
           depressed
           color="transparent"
         >
           {{ n.name }}
         </v-btn>
-        <img
-          alt="star Logo"
-          class="shrink mx-8 logoHeader d-none_Logomd btnSrc"
-          style="flex: 0 0 auto; "
-          :src="require('./assets/logo yellow 1.png')"
-        />
+        <a href="/">
+          <img
+            alt="star Logo"
+            class="shrink mx-8 logoHeader d-none_Logomd btnSrc"
+            style="flex: 0 0 auto; "
+            :src="require('./assets/logo yellow 1.png')"
+          />
+        </a>
+        
         <v-btn
           tag="a"
-          class="nav_link"
+          class="nav_link sam-link"
           :style="`font-size:20px; font-weight:${n.weight};`"
           v-for="n in buttonRight"
           :key="n.name"
           depressed
           color="transparent"
+          :href="n.href"
         >
           {{ n.name }}
         </v-btn>
@@ -64,9 +69,9 @@
     <v-main>
       <v-navigation-drawer v-model="drawer" fixed temporary style="top: 120px;">
         <v-list dense>
-          <v-list-item v-for="item in drawers" :key="item.name" link>
+          <v-list-item tag="a" class="sam-link" :href="item.href" v-for="item in drawers" :key="item.name" link>
             <v-list-item-content>
-              <v-list-item-title>{{ item.name }}</v-list-item-title>
+              <v-list-item-title :src-data="item.href">{{ item.name }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -90,48 +95,68 @@ import Portfolio from "./components/portfolio";
 import Client from "./components/Client";
 import Map from "./components/Map";
 import Footer from "./components/Footer";
-
+import $ from 'jquery'
 export default {
   name: "App",
 
   components: { Header, About, services, Portfolio, Client, Map, Footer },
-
+  mounted () {
+    let links = ('.sam-link');
+    $(links).on('click', function (e) {
+        e.preventDefault();
+        let id = $(this).attr('href');
+        let target = $(id).offset().top;
+        $('html, body').animate({
+            scrollTop: target,
+        }, 1000);
+    });
+  },
   data: () => ({
     drawer: false,
     drawers: [
       {
         name: "Biz haqimizda",
+        href:'#about',
       },
       {
         name: "Xizmatlarimiz",
+        href:'#services',
       },
       {
         name: "Portfolio",
+        href:'#portfolio',
       },
       {
         name: "Mijozlarimiz",
+        href:'#client',
       },
       {
         name: "Kontaktlarimiz",
+        href:'#footer',
       },
     ],
     buttonLeft: [
       {
         name: "Biz haqimizda",
+        href:'#about',
       },
       {
         name: "Xizmatlarimiz",
+        href:'#services',
       },
       {
         name: "Portfolio",
+        href:'#portfolio',
       },
     ],
     buttonRight: [
       {
         name: "Mijozlarimiz",
+        href:'#client',
       },
       {
         name: "Kontaktlarimiz",
+        href:'#footer',
       },
     ],
   }),

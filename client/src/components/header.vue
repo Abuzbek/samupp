@@ -13,7 +13,7 @@
               zamonaviy dizayn va upakovkaga ega bo'ling. <br />
               Zamonaviy upakovkaga buyurtma bering!
             </p>
-            <v-btn class="btnDep" tag="a" depressed color="#FEB11B">
+            <v-btn class="btnDep" tag="a" target="_blank" href="https://t.me/SamUpDesign" depressed color="#FEB11B">
               Buyurtma berish
             </v-btn>
           </div>
@@ -21,8 +21,8 @@
         <v-col cols="12" md="6">
           <div class="swiper_wrapper">
             <swiper class="swiper" :options="swiperOption">
-              <swiper-slide v-for="n in 6" :key="n">
-                <img :src="require('../assets/images/swiper.jpg')" alt="" />
+              <swiper-slide v-for="n in img" :key="n">
+                <img :src="n.img" alt="" />
               </swiper-slide>
             </swiper>
             <div class="swiper-button-prev swiperPrev" slot="button-prev"></div>
@@ -66,6 +66,23 @@ export default {
           prevEl: ".swiper-button-prev",
         },
       },
+      img: [
+        {
+          img: require("../assets/images/swiper.jpg"),
+        },
+        {
+          img: require("../assets/images/swiper1.jpg"),
+        },
+        {
+          img: require("../assets/images/swiper2.jpg"),
+        },
+        {
+          img: require("../assets/images/swiper3.jpg"),
+        },
+        {
+          img: require("../assets/images/swiper4.jpg"),
+        },
+      ],
     };
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <section class="about">
+  <section class="about" id="services">
     <h1 class="text-center">Bizning xizmatlarimiz</h1>
     <v-container class="container">
       <v-row>

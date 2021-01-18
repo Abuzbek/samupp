@@ -1,5 +1,5 @@
 <template>
-  <section class="portfolio">
+  <section class="portfolio" id="portfolio">
     <v-container fluid>
       <v-row class="d-none__sm">
         <v-col cols="12" md="2">
@@ -38,7 +38,7 @@
                     Biz bilan bog’laning va o'z mahsulotingiz uchun chiroyli,
                     zamonaviy dizayn va upakovkaga ega bo'ling.
                   </p>
-                  <v-btn class="btnDep" tag="a" depressed color="#FEB11B">
+                  <v-btn class="btnDep" tag="a" target="_blank" href="https://t.me/SamUpDesign" depressed color="#FEB11B">
                     Buyurtma berish
                   </v-btn>
                 </v-col>
